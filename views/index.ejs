@@ -21,7 +21,7 @@
 
             <nav id="main-nav">
                 <ul class="menu">
-                    <li><a href="/">Startsida</a></li>
+                    <li><a href="/">Kurser</a></li>
                     <li><a href="/addcourse">Lägg till kurs</a> </li>
                     <li><a href="/about">Om</a></li>
                 </ul>
@@ -29,17 +29,16 @@
         </header>
 
         <main id="main">
+            <h1>Kurslista för Webbutveckling</h1>
             <article>
-                <h1>Kurslista</h1>
-                <p> En liten platshållare för kommande information.</p>
-               
+                                 
             <% if (courseList.length > 0) { %>
             <% courseList.forEach ((course) => { %>
                 <article>
-                    <h2><%= course.name %></h2>
-                    <p><%= course.code %></p>
-                    <p><%= course.syllabus %></p>
-                    <p><%= course.progression %></p>
+                    <p>Kursnamn: <%= course.name %></p>
+                    <p>Kurskod: <%= course.code %></p>
+                    <p>Plan: <%= course.syllabus %></p>
+                    <p>Progression: <%= course.progression %></p>
                     <p><a href="/delete/<%= course.id %>">Radera kurs</a></p>
                 </article>
             <% });%>
