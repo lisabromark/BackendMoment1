@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+   </head>
+
+<body class="theme">
+    <div class="container">
+        <header>
+            <input type="checkbox" id="toggle" class="dropdown">
+            <label for="toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav id="main-nav">
+                <ul class="menu">
+                    <li><a href="/">Startsida</a></li>
+                    <li><a href="/addcourse">Lägg till kurs</a> </li>
+                    <li><a href="/about">Om</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <article>
+                <h1>Kurslista</h1>
+                <p> En liten platshållare för kommande information.</p>
+               
+            <% if (courseList.length > 0) { %>
+            <% courseList.forEach ((course) => { %>
+                <article>
+                    <h2><%= course.name %></h2>
+                    <p><%= course.code %></p>
+                    <p><%= course.syllabus %></p>
+                    <p><%= course.progression %></p>
+                    <p><a href="/delete/<%= course.id %>">Radera kurs</a></p>
+                </article>
+            <% });%>
+            <% } %>
+        </main>
+
+        <footer>
+            <span class="material-icons">email</span>
+            <span class="material-icons">phone</span>
+            <span class="material-icons">map</span>
+        </footer>
+        
+    </div>
+</body>
+
+</html>

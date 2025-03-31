@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>AddCourses</title>
+   </head>
+
+<body class="theme">
+    <div class="container">
+        <header>
+            <input type="checkbox" id="toggle" class="dropdown">
+            <label for="toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav id="main-nav">
+                <ul class="menu">
+                    <li><a href="/">Startsida</a></li>
+                    <li><a href="/addcourse">Lägg till kurs</a> </li>
+                    <li><a href="/about">Om</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <article>
+                <h1>Lägg till kurs</h1>
+
+                <% if(locals.error) {%>
+                    <p class="error"><%= error %></p>
+                    <% }%>
+
+            <form method="post">
+                <label for="code">Kurskod</label>
+                <input type="text" id="code" name="code">
+                <br>
+                <label for="name">Kursnamn</label>
+                <input type="text" id="name" name="name">
+                <br>
+                <label for="syllabus">Kursplan</label>
+                <input type="text" id="syllabus" name="syllabus">
+                <br>
+                <label for="progression">Kursprogression</label>
+                <input type="text" id="progression" name="progression">
+                <br>
+                <input type="submit" id="submit-btn" value="Lägg till ny kurs">
+            </form>
+
+            </article>
+        </main>
+
+        <footer>
+            <span class="material-icons">email</span>
+            <span class="material-icons">phone</span>
+            <span class="material-icons">map</span>
+        </footer>
+        
+    </div>
+</body>
+
+</html>
