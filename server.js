@@ -45,7 +45,7 @@ app.post("/addcourse", (req, res) => {
 
     //validera input
     if (code !== "" && name !== "" && syllabus !== "" && progression !== "") {
-
+        //har VALUES (?,?,?,?) för att göra koden säkrare och undvika sårbarhet
         const stmt = db.prepare("INSERT INTO course(code, name, syllabus, progression)VALUES(?,?,?,?)");
         stmt.run(code, name, syllabus, progression, (err) => {
             if (err) {
@@ -68,16 +68,16 @@ app.post("/addcourse", (req, res) => {
 });
 
 app.get("*/delete/:id", (req, res) => {
- let id = req.params.id;
+    let id = req.params.id;
 
- //radera inlägg
-db.run("DELETE FROM course WHERE id =?;", id, (err) =>{
-    if(err){
-        console.error(err.message);
-    }
-    //redirect till startsida
-    res.redirect("/");
-});
+    //radera inlägg
+    db.run("DELETE FROM course WHERE id =?;", id, (err) => {
+        if (err) {
+            console.error(err.message);
+        }
+        //redirect till startsida
+        res.redirect("/");
+    });
 
 });
 
